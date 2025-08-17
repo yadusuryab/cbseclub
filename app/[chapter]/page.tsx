@@ -125,14 +125,14 @@ export default function ChapterPage() {
       </div>
 
       {/* Input */}
-      <div className="sticky bottom-0 z-20 p-4 border rounded-t-3xl bg-white">
+      <div className="sticky bottom-0 z-20 p-4 border rounded-t-3xl">
         <div className="flex items-center gap-2 max-w-3xl mx-auto">
           <textarea
             rows={1}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Message your study assistant..."
-            className="flex-1 resize-none border rounded-2xl px-4 py-3 shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 bg-gray-50 h-12"
+            className="flex-1 resize-none border rounded-2xl bg-white text-black px-4 py-3 shadow-sm focus:outline-none focus:ring-1 focus:ring-primary  h-12"
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();

@@ -15,28 +15,28 @@ const chapters = [
     { number: 13, name: "Surface Areas and Volumes" },
     { number: 14, name: "Statistics" },
     { number: 15, name: "Probability" },
-    { number: 'rd',name:"RD Sharma Solutions"}
+    { number: 'rd', name: "RD Sharma Solutions" }
   ];
-module.exports = {
-    siteUrl: 'https://learncbse.vercel.app', // your live site URL
-    generateRobotsTxt: true, // (optional) generate robots.txt
+  
+  module.exports = {
+    siteUrl: 'https://learncbse.vercel.app',
+    generateRobotsTxt: true,
     changefreq: 'weekly',
     priority: 0.8,
     sitemapSize: 5000,
-    exclude: ['/admin/*'], // exclude any admin or hidden pages
-    transform: async (config, path) => {
-      return {
-        loc: path, // => this will be exported as https://learncbse.vercel.app/path
-        changefreq: config.changefreq,
-        priority: config.priority,
-        lastmod: new Date().toISOString(),
-      };
-    },
+    exclude: ['/admin/*'],
+  
     additionalPaths: async (config) => {
-        return chapters.map(chapter => {
-          const path = `/chapter-${chapter.number}-${chapter.name.toLowerCase().replace(/\s+/g, "-")}`;
-          return config.transform(config, path);
-        });
-      },
+      const paths = chapters.map(chapter => {
+        const slug = `/chapter-${chapter.number}-${chapter.name.toLowerCase().replace(/\s+/g, "-")}`;
+        return {
+          loc: `${config.siteUrl}${slug}`,
+          changefreq: config.changefreq,
+          priority: config.priority,
+          lastmod: new Date().toISOString()
+        };
+      });
+      return paths;
+    }
   };
   

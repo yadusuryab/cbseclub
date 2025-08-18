@@ -19,7 +19,7 @@ const chapters = [
   ];
   
   module.exports = {
-    siteUrl: 'https://learncbse.vercel.app',
+    siteUrl: 'https://cbseclub.vercel.app',
     generateRobotsTxt: true,
     changefreq: 'weekly',
     priority: 0.8,
